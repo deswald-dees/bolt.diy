@@ -8,6 +8,13 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Install & build
+        run: pnpm i  &&  pnpm build
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
