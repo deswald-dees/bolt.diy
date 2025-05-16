@@ -1,4 +1,4 @@
-name: Manual Deploy To Cloudflare Worker
+name: Manual Deploy To Cloudflare Pages
 
 on: workflow_dispatch
 
@@ -18,5 +18,5 @@ jobs:
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          command: pages deploy
+          command: pages deploy --project-name=bolt-diy
           apiToken: ${{ secrets.CF_API_TOKEN }}
